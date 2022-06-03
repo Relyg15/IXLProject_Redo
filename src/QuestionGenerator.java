@@ -14,7 +14,7 @@ public class QuestionGenerator {
         System.out.println("  " + num1 +"\n+ " + num2 );
         String answer = input.nextLine();
         if (answer.equals(""+sum)){ System.out.println("That's correct");  return answer;}
-        else if (!answer.equals("end")){System.out.println("That's incorrect"); return answer;}
+        else if (answer.equals("end")){System.out.println("That's incorrect"); return answer;}
         else return "end";
     }
 

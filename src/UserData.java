@@ -1,15 +1,12 @@
 import java.io.*;
 import java.util.Scanner;
 public class UserData {
-    private IXLGenerator user;
+
     private String userName;
-    private char userName1;
     private static String filePath;
 
     public UserData(String userName) {
         this.userName = userName;
-        userName1 = charValueOf(userName);
-        user = new IXLGenerator(userName);
         filePath = "C://Users//BT_1E10_30//relyganesh//src//userdata.txt";
     }
 
@@ -20,7 +17,7 @@ public class UserData {
                 File f = new File(filePath);
                 f.createNewFile();
                 FileWriter fw = new FileWriter(f,true);
-                fw.write(user.getUserName()+ "\n");
+                fw.write(userName+ "\n");
                 fw.close();
             } catch (IOException e) {
                 System.out.println("Unable to create file");
@@ -30,37 +27,42 @@ public class UserData {
     }
 
     public boolean isNewUserData(){
-//
-//        Scanner read = new Scanner(filePath);
-//        while (read.hasNext()) {
-//            String line = read.nextLine();
-//            if (line.indexOf(userName) != -1) {
-//                System.out.println("This is a returning user");
-//                return false;
-//            }
-//        }
-//        System.out.println("This is a new user");
-//        return true;
-        File file = new File(filePath);
 
-        try (FileReader fr = new FileReader(file))
-        {
-            int content;
-            while ((content = fr.read()) != -1) {
-                char name = (char) content;
-                System.out.println(name);
-                if (name == userName){
-                    return false;
-                }
+        Scanner read = new Scanner(filePath);
+        while (read.hasNext()) {
+            String line = read.nextLine();
+            System.out.println(line);
+            if (line.indexOf(userName) != -1) {
+                System.out.println("This is a returning user");
+                return false;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            else {
+                System.out.println("This is a new user");
+                return true;
+            }
         }
+
+//        File file = new File(filePath);
+//
+//        try (FileReader fr = new FileReader(file))
+//        {
+//            int content;
+//            while ((content = fr.read()) != -1) {
+//                char name = (char) content;
+//                System.out.println(name);
+//                if (name == userName){
+//                    return false;
+//                }
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return true;
         return true;
     }
 
     public String getUserInfo() {
-        String name = user.getUserName();
+        String name = userName;
         if (isNewUserData()) {
             Scanner read = new Scanner(filePath);
             while (read.hasNext()) {
@@ -75,24 +77,26 @@ public class UserData {
         return "";
     }
         public static void fileReader() {
-            File file = new File(filePath);
-
-            try (FileReader fr = new FileReader(file))
-            {
-                int content;
-                while ((content = fr.read()) != -1) {
-                    System.out.print((String)content);
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-//            Scanner read = new Scanner(filePath);
-//        while (read.hasNext()) {
-//                System.out.println(read.nextLine());
+//            File file = new File(filePath);
+//
+//            try (FileReader fr = new FileReader(file))
+//            {
+//                int content;
+//                while ((content = fr.read()) != -1) {
+//                    System.out.print((String)content);
+//                }
+//            } catch (IOException e) {
+//                e.printStackTrace();
 //            }
+            Scanner read = new Scanner(filePath);
+        while (read.hasNext()) {
+                System.out.println(read.nextLine());
+            }
         }
     public static void main(String[] args) {
         UserData use = new UserData("rely");
         System.out.println(use.isNewUserData());
+        UserData use2 = new UserData("rel2");
+        System.out.println(use2.isNewUserData());
     }
 }
