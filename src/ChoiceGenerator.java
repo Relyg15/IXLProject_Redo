@@ -38,7 +38,10 @@
 
         else if (selection.equals(""+ 10)){ return generator.multiplyNums();}
 
-        else { return "Invalid Option, you need to pay attention to directions";}
+       else { System.out.println("Invalid Option, you need to pay attention to directions"); 
+
+        return getQuestions();
+        }
 
     }
 
