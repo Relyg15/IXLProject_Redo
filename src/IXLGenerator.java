@@ -7,7 +7,7 @@ public class IXLGenerator {
 
         System.out.println("Welcome! please type your username below:");
         String userName = scan.nextLine();
-        UserDataCollector ud = new UserDataCollector(userName);
+        IXLUserDataCollector ud = new IXLUserDataCollector(userName);
         ud.getUserInfo();
         ud.createNewUserData();
         cg.getQuestions();
