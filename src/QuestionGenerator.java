@@ -2,32 +2,48 @@ import java.util.Scanner;
 
 public class QuestionGenerator {
     private Scanner input;
-    public QuestionGenerator(){
+    private static String end;
+
+    public QuestionGenerator() {
         input = new Scanner(System.in);
+        end = "";
     }
 
-
-    public String addNumMillions(){
-        int num1 = (int)(Math.random()*390000000) + 100000000;
-        int num2 = (int)(Math.random()*390000000) + 100000000;
+    public String addNumMillions() {
+        int num1 = (int) (Math.random() * 390000000) + 100000000;
+        int num2 = (int) (Math.random() * 390000000) + 100000000;
         int sum = num1 + num2;
-        System.out.println("  " + num1 +"\n+ " + num2 );
+        System.out.println("  " + num1 + "\n+ " + num2);
         String answer = input.nextLine();
-        if (answer.equals(""+sum)){ System.out.println("That's correct");  return answer;}
-        else if (answer.equals("end")){System.out.println("That's incorrect"); return answer;}
-        else return "end";
+        if (answer.equals("" + sum)) {
+            System.out.println("That's correct");
+            return answer;
+        } else if (!answer.equals("end")) {
+            System.out.println("That's incorrect");
+            return answer;
+        } else{
+            end = "end";
+            return "end";
+        }
     }
 
-
-    public String multiplyNums(){
-        int num1 = (int)(Math.random()* 900) + 100;
-        int num2 = (int)(Math.random()* 10);
-        String num = "" +(num1*num2);
-        System.out.println("What is " + num1 + " * " + num2 + " ?" );
+    public String multiplyNums() {
+        int num1 = (int) (Math.random() * 900) + 100;
+        int num2 = (int) (Math.random() * 10);
+        String num = "" + (num1 * num2);
+        System.out.println("What is " + num1 + " * " + num2 + " ?");
         String answer = input.nextLine();
-        if (answer.equals(num)){System.out.println("That's correct");  return answer;}
-        else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
-        else return "end";
+        if (answer.equals(num)) {
+            System.out.println("That's correct");
+            return answer;
+        } else if (!answer.equals("end")) {
+            System.out.println("That's incorrect");
+            return answer;
+        } else{
+            end = "end";
+            return "end";
+        }
+
     }
 
 
@@ -39,7 +55,10 @@ public class QuestionGenerator {
         String answer = input.nextLine();
         if (answer.equals(num)){System.out.println("That's correct");  return answer;}
         else if (!answer.equals("end")){System.out.println("That's incorrect"); return answer;}
-        else return "end";
+        else{
+            end = "end";
+            return "end";
+        }
     }
 
     public String findTwoNums(){
@@ -50,9 +69,16 @@ public class QuestionGenerator {
         System.out.println("The sum of two numbers are " + sum + "  and the difference of the same two numbers are " + difference +
                 "\nWhat are the two numbers?");
         String answer = input.nextLine();
-        if (answer.indexOf(""+num1) > -1 && answer.indexOf(""+num2) > -1){ System.out.println("That's correct"); return answer;}
-        else if (!answer.equals("end")){System.out.println("That's incorrect, the correct answer is " + num1 + " and " + num2);  return answer;}
-        else return "end";
+        if (answer.indexOf(""+num1) > -1 && answer.indexOf(""+num2) > -1)
+        { System.out.println("That's correct");
+            return answer;}
+        else if (!answer.equals("end")){
+            System.out.println("That's incorrect, the correct answer is " + num1 + " and " + num2);
+            return answer;}
+        else{
+            end = "end";
+            return "end";
+        }
     }
 
 
@@ -73,11 +99,7 @@ public class QuestionGenerator {
             oper = " * ";}
 
         System.out.println("What is " + num1 + oper + num2 + " ?");
-        String userInput = input.nextLine();
-
-        if (answer.equals(userInput)){ System.out.println("That's correct"); return answer;}
-        else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
-        else return "end";
+        return getString(answer);
     }
 
 
@@ -85,23 +107,26 @@ public class QuestionGenerator {
         int num1 = 3 * (int)(Math.random() * 10);
         String answer ="" + (num1/3);
         System.out.println("What is " + num1 + " divided by 3?");
-        String userInput = input.nextLine();
-        if (answer.equals(userInput)){System.out.println("That's correct"); return answer;}
-        else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
-        else return "end";
+        return getString(answer);
 
     }
 
+    private String getString(final String answer) {
+        String userInput = input.nextLine();
+        if (answer.equals(userInput)){System.out.println("That's correct"); return answer;}
+        // else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
+        else{
+            end = "end";
+            return "end";
+        }
+    }
 
     public String subtractByMultiplesOfTen(){
         int num1 = 10 * ((int)(Math.random()*50) + 20);
         int num2 = 10 * ((int)(Math.random()*20) + 1);
         String answer = "" + (num1 - num2);
         System.out.println("What is " + num1 + " - " + num2 + " ?");
-        String userInput = input.nextLine();
-        if (answer.equals(userInput)){ System.out.println("That's correct"); return answer;}
-        else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
-        else return "end";
+        return getString(answer);
     }
 
 
@@ -110,10 +135,7 @@ public class QuestionGenerator {
         int num2 = (int)(Math.random()*400) + 100;
         String answer = "" + (num1 + num2);
         System.out.println("What is " + num1 + " +\n " + num2 + " ?");
-        String userInput = input.nextLine();
-        if (answer.equals(userInput)){System.out.println("That's correct"); return answer;}
-        else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
-        else return "end";
+        return getString(answer);
     }
 
 
@@ -121,23 +143,18 @@ public class QuestionGenerator {
         int num1 = (int) (Math.random() * 10) + 1;
         String answer = "" + (num1 - 1);
         System.out.println("What is " + num1 + " minus 1?");
-        String userInput = input.nextLine();
-        if (answer.equals(userInput)) {
-            System.out.println("That's correct"); return answer;}
-        else if (!answer.equals("end")){System.out.println("That's incorrect"); return answer;}
-        else return "end";
+        return getString(answer);
     }
 
 
-    public String addByFour(){
-        int num1 =  (int)(Math.random()*10);
-        String answer = ""  + (num1 + 4);
+    public String addByFour() {
+        int num1 = (int) (Math.random() * 10);
+        String answer = "" + (num1 + 4);
         System.out.println("What is " + num1 + " + 4?");
-        String userInput = input.nextLine();
-        if (answer.equals(userInput)){System.out.println("That's correct"); return answer;}
-        else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
-        else return "end";
-
+        return getString(answer);
+    }
+    public static String getValueOfAnswer(){
+        return end;
     }
 
 }
