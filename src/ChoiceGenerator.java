@@ -1,4 +1,6 @@
-{
+import java.util.*;
+
+public class ChoiceGenerator {
     private Scanner input;
     private QuestionGenerator generator;
     private String selection;
@@ -15,7 +17,7 @@
         System.out.println("Here are your selections:\n1. Grade 1: Subtracting Numbers By one\n2. Grade 1: Adding Numbers by 4\n3. " +
                 "Grade 2: Subtracting Numbers that are Multiples of Ten\n4. Grade 2: Adding 3-Digit Numbers\n5. Grade 3: Mixed Operation Equations\n" +
                 "6. Grade 3: Dividing Numbers By 3\n7. Grade 4: Adding Numbers 4 Digit Numbers\n8. Grade 4: Finding Two Numbers with their Sum and Difference\n" +
-                "9.Grade 5: Adding 7 - Digit Numbers\n10. Grade 5: Multiplying 3 - Digit Numbers by 1 digit Numbers ");
+                "9. Grade 5: Adding 7 - Digit Numbers\n10. Grade 5: Multiplying 3 - Digit Numbers by 1 digit Numbers ");
         selection = input.nextLine();
 
         if(selection.equals(""+ 1)){ return generator.subtractByOne();}
@@ -38,7 +40,7 @@
 
         else if (selection.equals(""+ 10)){ return generator.multiplyNums();}
 
-       else { System.out.println("Invalid Option, you need to pay attention to directions"); 
+        else { System.out.println("Invalid Option, you need to pay attention to directions"); ;
 
         return getQuestions();
         }
@@ -115,7 +117,10 @@
 
     }
 
-    
+    public static void main(String[] args) {
+        ChoiceGenerator cg = new ChoiceGenerator();
+        cg.getQuestions();
+        cg.repeatQuestions();
     }
 
 }
