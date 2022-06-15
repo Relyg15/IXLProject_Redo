@@ -50,49 +50,55 @@ public class ChoiceGenerator {
 
     public void repeatQuestions(){
 
-
-        if(selection.equals(""+ 1)) {
+        if (selection.equals(""+ 1)) {
             while (!answerChoice.equals("end")) {
                 generator.subtractByOne();
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else if (selection.equals(""+ 2)) {
             while (!answerChoice.equals("end")) {
                 generator.addByFour();
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else if (selection.equals(""+ 3)) {
             while (!answerChoice.equals("end")) {
                 generator.subtractByMultiplesOfTen();
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else if(selection.equals(""+ 4)) {
             while (!answerChoice.equals("end")) {
                 generator.addThreeNums();
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else if (selection.equals(""+ 5)) {
             while (!answerChoice.equals("end")) {
                 generator.doMixedOperations();
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else if (selection.equals(""+ 6)) {
             while (!answerChoice.equals("end")) {
                 generator.divideByThree();
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else if(selection.equals(""+ 7)) {
             while (!answerChoice.equals("end")) {
                 generator.addThousands();
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else if (selection.equals(""+ 8)) {
             while (!answerChoice.equals("end")) {
                 generator.findTwoNums();
@@ -106,22 +112,18 @@ public class ChoiceGenerator {
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else if (selection.equals(""+ 10)) {
             while (!answerChoice.equals("end")) {
                 generator.multiplyNums();
                 answerChoice = generator.getValueOfAnswer();
             }
         }
+        
         else {
             System.out.println("Invalid Option, you need to pay attention to directions");
         }
 
-    }
-
-    public static void main(String[] args) {
-        ChoiceGenerator cg = new ChoiceGenerator();
-        cg.getQuestions();
-        cg.repeatQuestions();
     }
 
 }
