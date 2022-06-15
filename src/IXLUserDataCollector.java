@@ -27,7 +27,7 @@ public class IXLUserDataCollector {
         FileWriter fw = new FileWriter(f, true);
         fw.write(userName + "\n");
         fw.close();
-                 }           
+            }       
         catch (IOException e) {
         System.out.println("Unable to create file");
         e.printStackTrace();
@@ -36,14 +36,17 @@ public class IXLUserDataCollector {
         }
 
     public boolean isNewUserData(){
-        if (userNames.contains(userName)){
+      if (userNames.contains(userName))
+        {
             System.out.println("Welcome back " + userName);
             return false;
-             }
-        else {
+         }
+        
+      else 
+        {
             System.out.println("Welcome to IXL " + userName);
             return true;
-             }
+         }
       }
    
     public void getUserInfo() throws IOException {
