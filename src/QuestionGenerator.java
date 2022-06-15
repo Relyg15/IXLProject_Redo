@@ -43,7 +43,6 @@ public class QuestionGenerator {
             end = "end";
             return "end";
         }
-
     }
 
 
@@ -102,7 +101,6 @@ public class QuestionGenerator {
         return getString(answer);
     }
 
-
     public String divideByThree(){
         int num1 = 3 * (int)(Math.random() * 10);
         String answer ="" + (num1/3);
@@ -114,7 +112,7 @@ public class QuestionGenerator {
     private String getString(final String answer) {
         String userInput = input.nextLine();
         if (answer.equals(userInput)){System.out.println("That's correct"); return answer;}
-        // else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
+        else if (!answer.equals("end")) {System.out.println("That's incorrect");  return answer;}
         else{
             end = "end";
             return "end";
